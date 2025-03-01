@@ -1,14 +1,14 @@
 import { ScrollView, Text, View } from "react-native";
 import { Container } from "../components/ui";
 
-const Home = () => {
+const Wallet = () => {
   return (
     <ScrollView>
       <Container>
-        <Text>Home</Text>
+        <Text>Wallet</Text>
       </Container>
     </ScrollView>
   );
 };
 
-export default Home;
+export default Wallet;
