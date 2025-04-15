@@ -1,13 +1,14 @@
 import { ScrollView, Text, View } from "react-native";
 import { Container } from "../components/ui";
+import ScrollViewWrapper from "./ScrollViewWrapper";
 
 const Wallet = () => {
   return (
-    <ScrollView>
+    <ScrollViewWrapper>
       <Container>
         <Text>Wallet</Text>
       </Container>
-    </ScrollView>
+    </ScrollViewWrapper>
   );
 };
 

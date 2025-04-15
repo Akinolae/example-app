@@ -1,13 +1,14 @@
 import { ScrollView, Text, View } from "react-native";
 import { Container } from "../components/ui";
+import ScrollViewWrapper from "./ScrollViewWrapper";
 
 const Profile = () => {
   return (
-    <ScrollView>
+    <ScrollViewWrapper>
       <Container>
         <Text>Profile</Text>
       </Container>
-    </ScrollView>
+    </ScrollViewWrapper>
   );
 };
 

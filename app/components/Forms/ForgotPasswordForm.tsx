@@ -28,7 +28,7 @@ const ForgotPasswordForm = ({ submit }: any) => {
             error={errors.email}
           />
 
-          <View style={styles.btn}>
+          <View>
             <CustomButton
               backgroundColor="#19191B"
               title={"Submit"}
@@ -51,9 +51,6 @@ const styles = StyleSheet.create({
     color: "red",
     fontSize: 12,
     marginBottom: 10,
-  },
-  btn: {
-    marginTop: 30,
   },
 });
 

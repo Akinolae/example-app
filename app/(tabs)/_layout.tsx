@@ -59,21 +59,26 @@ const Layout = () => {
             />
           );
         },
-        tabBarIconStyle: {
-          height: 50,
-          backgroundColor: "FFFFFF",
-          width: 50,
-          borderRadius: 50,
-        },
+        // tabBarIconStyle: {
+        //   height: "auto",
+        //   padding: 0,
+        //   width: "auto",
+        //   backgroundColor: "FFFFFF",
+        //   borderRadius: 50,
+        //   marginTop: 5,
+        // },
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: {
-          backgroundColor: "none",
-          paddingTop: 10,
-          borderWidth: 0,
-          borderTopWidth: 0,
-          marginBottom: 10,
+        tabBarIconStyle: {
+          marginTop: 5,
         },
+        tabBarStyle: {
+          elevation: 0,
+          borderTopWidth: 0,
+          shadowOpacity: 0,
+        },
+        tabBarActiveBackgroundColor: "transparent",
+        tabBarInactiveBackgroundColor: "transparent",
       })}
     >
       {tabs.map((tab: any, i: number) => {
@@ -83,6 +88,8 @@ const Layout = () => {
             name={tab.name === "index" ? "Home" : tab.name}
             options={{
               title: tab.title,
+              tabBarInactiveBackgroundColor: "transparent",
+              tabBarActiveBackgroundColor: "transparent",
             }}
           />
         );

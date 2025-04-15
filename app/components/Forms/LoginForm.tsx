@@ -42,7 +42,7 @@ const LoginForm = ({ submit }: any) => {
           <Text style={styles.text} onPress={() => router.push("/ForgotPassword")}>
             Forgot password
           </Text>
-          <View style={styles.btn}>
+          <View>
             <CustomButton
               backgroundColor="#19191B"
               title={"Login"}
@@ -65,9 +65,6 @@ const styles = StyleSheet.create({
     color: "red",
     fontSize: 12,
     marginBottom: 10,
-  },
-  btn: {
-    marginTop: 20,
   },
   text: {
     fontWeight: "500",

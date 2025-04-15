@@ -1,13 +1,14 @@
-import { ScrollView, Text, View, StyleSheet } from "react-native";
+import { Text } from "react-native";
 import { Container } from "../components/ui";
+import ScrollViewWrapper from "./ScrollViewWrapper";
 
 const Settings = () => {
   return (
-    <ScrollView>
+    <ScrollViewWrapper>
       <Container>
         <Text>Settings</Text>
       </Container>
-    </ScrollView>
+    </ScrollViewWrapper>
   );
 };
 
