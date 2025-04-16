@@ -1,29 +1,48 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import { Container, CustomButton } from "../components/ui";
 import { Ionicons } from "@expo/vector-icons";
 import CustomModal from "../components/Modals/Modal";
 import { useState } from "react";
-import ScrollViewWrapper from "./ScrollViewWrapper";
+import ScrollViewWrapper from "../components/ui/ScrollViewWrapper";
+import AccountDetailsWrapper from "../components/ui/AccountDetailsWrapper";
+import SendMoneyModal from "../components/Modals/SendMoneyModal";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [sendMoney, setSendMoney] = useState(false);
   return (
     <ScrollViewWrapper>
+      {/* Send money modal */}
+      <SendMoneyModal
+        isVisible={sendMoney}
+        onBackdropPress={() => setSendMoney(!sendMoney)}
+      />
       {/* modal */}
       <CustomModal
         isVisible={isVisible}
         onBackdropPress={() => setIsVisible(!isVisible)}
+        style={{
+          marginTop: Platform.OS === "android" ? "40%" : "55%",
+          marginHorizontal: 0,
+          marginBottom: 0,
+        }}
       >
-        <Text>Hello</Text>
+        <View style={styles.modalHeaderWrapper}>
+          <Text style={{ fontSize: 18, fontWeight: 700 }}>Deposit Money</Text>
+          <CustomButton
+            style={styles.closeBtn}
+            onPress={() => setIsVisible(!isVisible)}
+          >
+            <Ionicons size={24} name="close-circle" />
+          </CustomButton>
+        </View>
+        <AccountDetailsWrapper />
       </CustomModal>
       <Container>
         <View style={styles.headerWrapper}>
-          {/* <View>
-            <View style={styles.avatar}></View>
-          </View> */}
           <View>
-            <Text style={styles.headerText}>Good morning, Akinola 😊</Text>
-            <Text style={styles.subText}>Good morning</Text>
+            <Text style={styles.headerText}>Available Balance</Text>
+            <Text style={styles.amount}>$3,500,000</Text>
           </View>
           <View>
             <CustomButton backgroundColor="none">
@@ -31,34 +50,20 @@ const Home = () => {
             </CustomButton>
           </View>
         </View>
-        <View style={styles.accountWrapper}>
-          <Text style={styles.accountText}>Your Balance</Text>
-          <Text style={styles.amount}>$3,500,000</Text>
-          <View>
-            <CustomButton
-              title="Add Money"
-              backgroundColor="#19191B"
-              onPress={() => setIsVisible(!isVisible)}
-              style={{ height: 54, borderRadius: 50, marginTop: 20 }}
-            />
-          </View>
-        </View>
         <View style={styles.actionWrapper}>
           <CustomButton
-            style={styles.action}
-            title="Add"
-            textColor="red"
-          ></CustomButton>
+            title="Add Money"
+            backgroundColor="#6401ee"
+            onPress={() => setIsVisible(!isVisible)}
+            style={{ ...styles.actionBtn, color: "#6401ee" }}
+          />
           <CustomButton
-            style={styles.action}
-            title="Add"
-            textColor="red"
-          ></CustomButton>
-          <CustomButton
-            style={styles.action}
-            title="Add"
-            textColor="red"
-          ></CustomButton>
+            title="Send Money"
+            backgroundColor="#ADA6B6"
+            textColor="#6401ee"
+            onPress={() => setSendMoney(!sendMoney)}
+            style={styles.actionBtn}
+          />
         </View>
       </Container>
     </ScrollViewWrapper>
@@ -70,14 +75,42 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   headerText: {
-    fontSize: 18,
-    fontWeight: "600",
+    fontSize: 14,
+    fontWeight: "500",
   },
   subText: {
     fontSize: 12,
+  },
+  closeBtn: {
+    height: 24,
+    width: 24,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "100%",
+    backgroundColor: "#ada6b6",
+  },
+  modalHeaderWrapper: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  actionWrapper: {
+    marginTop: 10,
+    flexDirection: "row",
+    // flex: 1,
+    gap: 10,
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  actionBtn: {
+    width: "48%",
+    height: 54,
+    borderRadius: 50,
   },
   accountWrapper: {
     marginTop: 30,
@@ -100,14 +133,6 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
     backgroundColor: "red",
-  },
-  actionWrapper: {
-    flex: 1,
-    flexDirection: "row",
-    gap: 20,
-    marginTop: 20,
-    justifyContent: "center",
-    alignItems: "center",
   },
   action: {
     height: 85,

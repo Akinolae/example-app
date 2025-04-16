@@ -14,7 +14,9 @@ const CustomButton = ({
       onPress={onPress}
       activeOpacity={0.7}
     >
-      <Text style={[styles.text, { color: textColor }]}>{title}</Text>
+      {!!title && (
+        <Text style={[styles.text, { color: textColor }]}>{title}</Text>
+      )}
       {props.children}
     </TouchableOpacity>
   );

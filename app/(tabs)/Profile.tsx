@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from "react-native";
 import { Container } from "../components/ui";
-import ScrollViewWrapper from "./ScrollViewWrapper";
+import ScrollViewWrapper from "../components/ui/ScrollViewWrapper";
 
 const Profile = () => {
   return (

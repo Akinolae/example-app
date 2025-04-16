@@ -4,7 +4,7 @@ import Modal, { ModalProps } from "react-native-modal";
 const CustomModal = (props: ModalProps) => {
   return (
     <Modal
-      style={styles.modal}
+      style={{ ...styles.modal }}
       {...props}
       animationIn="slideInUp"
       animationOut="slideOutDown"

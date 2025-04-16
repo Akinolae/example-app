@@ -85,11 +85,9 @@ const Layout = () => {
         return (
           <Tabs.Screen
             key={i}
-            name={tab.name === "index" ? "Home" : tab.name}
+            name={tab.name}
             options={{
               title: tab.title,
-              tabBarInactiveBackgroundColor: "transparent",
-              tabBarActiveBackgroundColor: "transparent",
             }}
           />
         );
